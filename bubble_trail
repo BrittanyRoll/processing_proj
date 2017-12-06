@@ -1,0 +1,108 @@
+int num = 60;
+
+float mx[] = new float[num];
+
+float my[] = new float[num];
+
+int co1 = 252;
+int co2 = 255;
+int co3 = 174;
+
+
+void setup() {
+  size(400, 400);
+  noStroke();
+  fill(255, 153); 
+}
+
+
+
+void draw() {
+  background(co1, 88, 155);
+  stroke(co2+20,180,30);
+  fill(co2,180,30);
+  rect (50,50,300,300);
+  stroke(co3+20,232,242);
+  fill(co3,232,242);
+  rect (100,100,200,200);                      
+
+
+    if (keyPressed == true){
+      println(keyCode);
+    //space bar
+    if (keyCode == 32){
+      for(int i=1; i<num; i++) {
+        mx[i-1] = mx[i];
+        my[i-1] = my[i];
+      } 
+    mx[num-1] = mouseX;
+    my[num-1] = mouseY;
+
+      for(int i=0; i<num; i++) {
+        stroke(100,100, 150);
+        fill(100, 100, 200);
+        ellipse(mx[i], my[i], i/2, i/2);
+      } 
+    }
+    //left arrow
+    else if (keyCode == 37){
+      for(int i=1; i<num; i++) {
+        mx[i-1] = mx[i];
+        my[i-1] = my[i];
+      } 
+    mx[num-1] = mouseX;
+    my[num-1] = mouseY;
+
+      for(int i=0; i<num; i++) {
+        stroke(200,200, 250);
+        fill(200, 200, 255);
+        ellipse(mx[i], my[i], i/2, i/2);
+      } 
+    }
+    //shift button
+    else if (keyCode == 16){
+      for(int i=1; i<num; i++) {
+        mx[i-1] = mx[i];
+        my[i-1] = my[i];
+      } 
+    mx[num-1] = mouseX;
+    my[num-1] = mouseY;
+
+      for(int i=0; i<num; i++) {
+        stroke(200,100, 250);
+        fill(200, 100, 150);
+        ellipse(mx[i], my[i], i/2, i/2);
+      } 
+    }
+    //up key pressed change background
+   else if (keyCode == 38){
+      co1 = 0;
+    }
+   //down arrow key change background 
+    else if (keyCode == 40){
+      co2 = 205;
+    }
+    
+    //right arrow key change background 
+    else if (keyCode == 39){
+      co3 = 255;
+    }
+    }
+    
+    
+    else if (keyPressed == false) {
+      for(int i=1; i<num; i++) {
+      mx[i-1] = mx[i];
+      my[i-1] = my[i];
+      } 
+      
+    mx[num-1] = mouseX;
+    my[num-1] = mouseY;
+  
+      for(int i=0; i<num; i++) {
+      stroke(255,255,255);
+      fill(255,255,255,90);
+      ellipse(mx[i], my[i], i/2, i/2);
+     }
+    }
+   }
